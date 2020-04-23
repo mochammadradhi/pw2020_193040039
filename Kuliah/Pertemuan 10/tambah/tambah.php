@@ -3,7 +3,12 @@ require '../functions/functions.php';
 
 if(isset($_POST['submit'])){
   if(tambah($_POST)>0){
-    tambah($_POST);
+    echo "<script>
+          alert('Data berhasil ditambahkan!');
+          document.location.href = '../latihan3.php';
+          </script>";
+  }else{
+    echo "Data gagal ditambahkan";
   }
 }
 ?>
@@ -13,35 +18,57 @@ if(isset($_POST['submit'])){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tambah Data Mahasiswa</title>
+  <link rel="stylesheet" type="text/css" href="../Semantic UI/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="../Semantic UI/dist/semantic.min.js"></script>
+  
+  <style>
+    body{
+      margin:30px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Form Tambah Data Mahasiswa</h2>
-  <form action="" method="POST">
-  <table>
-    <tr>
-      <td><label for="nama">Nama :</label></td>
-      <td><input type="text" name="nama" autofocus></td>
-    </tr>
-    <tr>
-      <td><label for="nrp">NRP  :</label></td>
-      <td><input type="text" name="nrp"></td>
-    </tr>
-    <tr>
-      <td><label for="email">E-mail :</label></td>
-      <td><input type="text" name="email"></td>
-    </tr>
-    <tr>
-      <td><label for="jurusan">Jurusan :</label></td>
-      <td><input type="text" name="jurusan"></td>
-    </tr>
-    <tr>
-      <td><label for="gambar">Gambar :</label></td>
-      <td><input type="text" name="gambar"></td>
-    </tr>
-    <tr>
-      <td><input type="submit" name="submit" value="Submit"></td>
-    </tr>
-  </table>
+<div class="ui internally celled grid">
+<div class="row">
+    <div class="three wide column">
+<form action="" method="POST">
+  <div class="ui form error ">
+
+  <h3>Form Data Mahasiswa</h3>
+  <div class="field">
+    <label>Nama :</label>
+    <input type="text" name="nama" autofocus required>
+  </div>
+
+  <div class="field">
+    <label>NRP :</label>
+    <input type="text" name="nrp" required>
+  </div>
+
+  <div class="field">
+    <label>E-mail :</label>
+    <input type="email" name="email" required>
+  </div>
+
+  <div class="field">
+    <label>Jurusan :</label>
+    <input type="text" name="jurusan" required>
+  </div>
+
+  <div class="field">
+    <label>Gambar :</label>
+    <input type="text" name="gambar" required>
+  </div>
+
+  <div class="input-btn"><input name="submit" class="ui submit button" type="submit" value="Submit"></div>
   </form>
+  </div>
+    </div>
+
+</div>
+</div>
 </body>
 </html>
