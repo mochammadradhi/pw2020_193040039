@@ -11,6 +11,9 @@
 </head>
 <body>
   <h2>Daftar Mahasiswa</h2>
+  <a href="tambah/tambah.php">Tambah Data Mahasiswa</a>
+  <br>
+  <br>
   <table border="1" cellpadding="10" cellspacing="5">
   <tr>
     <th>#</th>
