@@ -66,7 +66,9 @@ if(isset($_POST['submit'])){
   <div class="input-btn"><input name="submit" class="ui submit button" type="submit" value="Submit"></div>
   </form>
   </div>
-    </div>
+  <br>
+  <a href="../Latihan3.php">Kembali ke Page Detail Mahasiswa</a>
+  </div>
 
 </div>
 </div>
