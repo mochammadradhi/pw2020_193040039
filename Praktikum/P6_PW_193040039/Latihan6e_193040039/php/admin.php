@@ -42,15 +42,7 @@ else{
 </head>
 <body>
 <h2>Admin Page</h2>
-<?php if(empty($result)):?>
-  <h2 class="kosong" id="kosong">Data Tidak Ditemukan!</h2>
-  <div class="ui animated button" tabindex="0">
-  <div class="visible content">Kembali</div>
-  <a href="admin.php"><div class="hidden content">
-    <i class="right arrow icon"></i>
-  </div></a>
-</div>
-  <?php else:?>
+
 <div class="ui category search">
 <form action="" method="GET">
   <div class="ui icon input right floated">
@@ -76,6 +68,19 @@ else{
   <th>Harga</th>
   <th>Rekomendasi</th>
   </tr>
+  <?php if(empty($result)):?>
+  <tr>
+  <td colspan="6">
+  <h2 class="kosong" id="kosong">Data Tidak Ditemukan!</h2>
+  <div class="ui animated button" tabindex="0">
+  <div class="visible content">Kembali</div>
+  <a href="admin.php"><div class="hidden content">
+    <i class="right arrow icon"></i>
+  </div></a>
+</div>  
+  </td>
+  </tr>
+  <?php else:?>
   <?php foreach($result as $res):?>
   <tr>
   <td><?=$res['ID']?></td>
