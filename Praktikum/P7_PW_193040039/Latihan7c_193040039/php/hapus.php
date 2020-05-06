@@ -2,8 +2,8 @@
 
 session_start();
 if (!isset($_SESSION['username'])) {
-  header("Location: login.php");
-  die;
+  header("Location: ../index.php");
+  exit;
 }
 
 require '../../assets/functions/functions.php';

@@ -1,5 +1,12 @@
 <?php
 require('../../assets/functions/functions.php');
+
+session_start();
+if (!isset($_SESSION['username'])) {
+  header("Location: ../index.php");
+  exit;
+}
+
 if (isset($_GET['keyword'])) {
   $keyword = $_GET['keyword'];
   $result = query("SELECT * FROM music_gear WHERE
@@ -11,8 +18,7 @@ if (isset($_GET['keyword'])) {
 } else {
   $result = query("SELECT * FROM music_gear");
 }
-echo $_COOKIE['username'];
-echo $_COOKIE['hash'];
+
 
 ?>
 <!DOCTYPE html>

@@ -1,12 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-  header("Location: login.php");
-  die;
+  header("Location: ../index.php");
+  exit;
 }
 
-echo $_COOKIE['username'];
-echo $_COOKIE['hash'];
 
 
 require '../../assets/functions/functions.php';
