@@ -89,11 +89,11 @@ function login($data)
 {
   $conn = connect();
 
-  $username = htmlspecialchars($data['username']);
-  $password = htmlspecialchars($data['password']);
+  $username_login = htmlspecialchars($data['username']);
+  $password_login = htmlspecialchars($data['password']);
 
-  if ($user = query("SELECT * FROM user WHERE username = '$username'")) {
-    if (password_verify($password, $user['password'])) {
+  if ($user = query("SELECT * FROM user WHERE username = '$username_login'")) {
+    if (password_verify($password_login, $user['password'])) {
       $_SESSION['login'] = true;
       header("Location: index.php");
       exit;
