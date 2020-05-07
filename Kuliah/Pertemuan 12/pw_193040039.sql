@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2020 at 06:49 PM
+-- Generation Time: May 07, 2020 at 06:52 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -67,6 +67,15 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'admin', '$2y$10$qpShggLGAdlLcEAH59e9muzAs'),
+(2, 'adminfakultas', '$2y$10$5mXpdzkoEigkm43zWpX9i.kKF'),
+(3, 'mochammadradhi', '$2y$10$o9vZcrWaXc/acwKlJQmMEOSVX');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -96,7 +105,7 @@ ALTER TABLE `mahasiswa`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
