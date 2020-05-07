@@ -13,6 +13,7 @@ if (isset($_GET['keyword'])) {
 }
 
 require('php/login.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

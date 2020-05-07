@@ -63,7 +63,7 @@ if (isset($_GET['keyword'])) {
           <i class="search icon"></i>
         </div>
       </form>
-      <a href="logout_user.php" style="margin-left: 10px;">
+      <a href="logout.php" style="margin-left: 10px;">
         <div class="ui medium primary labeled icon button">
           <i class="sign-out icon"></i>Logout
         </div>

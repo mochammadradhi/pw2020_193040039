@@ -20,6 +20,8 @@ if (isset($_GET['keyword'])) {
   $result = query("SELECT * FROM music_gear");
 }
 
+
+
 ?>
 
 <!DOCTYPE html>

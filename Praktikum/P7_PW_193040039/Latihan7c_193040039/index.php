@@ -1,18 +1,7 @@
 <?php
-require('../assets/functions/functions.php');
-if (isset($_GET['keyword'])) {
-  $keyword = $_GET['keyword'];
-  $result = query("SELECT * FROM music_gear WHERE
-      img_music_gear LIKE '%$keyword%' OR
-      nama_music_gear LIKE '%$keyword%' OR
-      deskripsi LIKE '%$keyword%' OR
-      harga LIKE '%$keyword%' OR
-      rekomendasi LIKE '%$keyword%' ");
-} else {
-  $result = query("SELECT * FROM music_gear");
-}
 
-require('php/login.php');
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,13 +16,9 @@ require('php/login.php');
   <style>
     body {
       margin: 0;
-      padding: 20px;
+      padding: 50px;
     }
 
-    .container {
-      padding: 15px;
-      width: 40%;
-    }
 
     div [class*="right floated"] {
       float: right;
@@ -43,126 +28,99 @@ require('php/login.php');
     .ui .modal .content .description {
       width: 35% !important;
     }
+
+    .bgimg {
+      padding: 0 !important;
+      background-image: url('../assets/img/background_img1.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .content_title {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      width: 100%;
+      height: 100%;
+    }
+
+    .ui .grid {
+      padding: 0 !important;
+      margin: 0 !important;
+      height: 500px;
+    }
+
+
+    .content_title img {
+      margin-top: 30px;
+      position: absoulte;
+      width: 130px;
+    }
+
+    .content_title_right {
+      margin-top: 40%;
+    }
+
+    .footer_right {
+      position: relative;
+      bottom: -135px;
+    }
+
+    .ui[class*="very padded"].segment {
+      padding: 0;
+    }
   </style>
 </head>
 
 <body>
-  <h1 class="ui header left aligned hed">Selamat Datang di Detail Page Music Gear</h1>
-  <div class="container">
-    <div class="ui category search">
-      <form action="" method="GET">
-        <div class="ui icon input right floated">
-          <input class="prompt" type="text" name="keyword" placeholder="Search Alat Musik...">
-          <i class="search icon"></i>
+  <div class="ui raised very padded text container segment center aligned">
+    <div class="ui grid">
+      <div class="eight wide column bgimg">
+        <div class="content_title">
+          <img src="../assets/img/logo_music.png" alt="">
+          <p class="ui header left aligned"> " Music Store Sales people provide customer service for clientele shopping for musical instruments, both in the shop and online "</p>
         </div>
-      </form>
-    </div>
-
-    <?php if (empty($result)) : ?>
-      <h2 class="kosong" id="kosong">Data Tidak Ditemukan!</h2>
-      <div class="ui animated button" tabindex="0">
-        <div class="visible content">Kembali</div>
-        <a href="index.php">
-          <div class="hidden content">
-            <i class="right arrow icon"></i>
-          </div>
-        </a>
       </div>
-    <?php else : ?>
-      <br>
-      <br>
-      <div class="ui items ">
-        <?php foreach ($result as $res) : ?>
-          <div class="item">
-            <div class="ui small image">
-              <img src="../assets/img/<?= $res["img_music_gear"] ?>">
-            </div>
-            <div class="middle aligned content">
-              <div class="header">
-                <?= $res["nama_music_gear"] ?>
-              </div>
-              <div class="description">
-                <p><?= $res["deskripsi"] ?></p>
-              </div>
-              <div class="extra">
-                <div class="ui right floated button">
-                  <a href="php/detail.php?ID=<?= $res["ID"] ?>" class="header">Detail</a>
-                </div>
+      <div class="eight wide column">
+        <div class="content_title_right">
+          <h2>Kunjungi Website Music Gear Kami</h2>
+          <a href="php/login.php">
+            <div class="ui primary animated button" tabindex="0">
+              <div class="visible content"> Login </div>
+              <div class="hidden content">
+                <i class="sign-in icon"></i>
               </div>
             </div>
-            <br>
-            <br>
-          </div>
-        <?php endforeach; ?>
-      <?php endif; ?>
-      </div>
-  </div>
+          </a>
+          <br>
+          <br>
+          <div class="four wide column">
+            <button class="ui facebook button">
+              <i class="facebook icon"></i>
+              Facebook
+            </button>
 
-  <!-- MODAL LOGIN ADMIN PAGE -->
-  <div class="ui modal">
-    <div class="header">
-      Login Page
-    </div>
-    <div class="image content">
-      <div class="ui large image">
-        <img src="../assets/img/admin.png">
-      </div>
-      <div class="description centered">
-        <?php if (isset($error)) : ?>
-          <?php echo "  <script>
-          $('.ui.modal')
-          modal('setting', 'closable', false)
-          .modal('show');
-          </script>
-          "; ?>
-          <div class="ui error message">
-            <div class="header">Username Atau Password Anda Salah!</div>
-            <p>Silahkan cek kembali username dan password anda.</p>
-            <p>NOTE :</p>
-            <p><b>Admin Page</b></p>
-            <p>username adminsuper password admin</p>
-            <p><b>User Page</b></p>
-            <p>username user1 passsword user1</p>
-          </div>
-        <?php endif; ?>
-        <form action="" method="POST">
-          <div class="ui form">
-            <div class="field">
-              <label>Username :</label>
-              <input type="text" name="username" required>
-            </div>
-            <div class="field">
-              <label>Password :</label>
-              <input type="password" name="password" required>
-            </div>
-
-            <div class="field">
-              <div class="ui checkbox">
-                <input type="checkbox" name="remember">
-                <label>Remember me</label>
-              </div>
-            </div>
-            <div class="field">Belum punya akun? | <a href="php/register.php">Register</a></div>
-            <button class="ui positive right labeled icon button" name="submit">
-              Login
-              <i class="arrow alternate circle right outline icon"></i>
+            <button class="ui twitter button">
+              <i class="twitter icon"></i>
+              Twitter
             </button>
           </div>
-        </form>
+
+          <br>
+        </div>
+        <div class="footer_right">
+          <div class="ui center floated horizontal list">
+            <div class="disabled item" href="#">© Music Gear, Store.</div>
+            <a class="item" href="#">Terms</a>
+            <a class="item" href="#">Privacy</a>
+            <a class="item" href="#">Contact</a>
+          </div>
+        </div>
+
       </div>
     </div>
 
   </div>
-  </div>
 
-  <script>
-    $('.ui.modal')
-      .modal({
-        blurring: true
-      })
-      .modal('setting', 'closable', false)
-      .modal('show');
-  </script>
 </body>
 
 </html>
