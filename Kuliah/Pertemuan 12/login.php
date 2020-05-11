@@ -6,7 +6,6 @@ if (isset($_POST['login'])) {
   $login = login($_POST);
 }
 
-
 ?>
 
 <!DOCTYPE html>

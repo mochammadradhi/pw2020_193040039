@@ -12,6 +12,7 @@ function query($query)
   if (mysqli_num_rows($result) == 1) {
     $rows = mysqli_fetch_assoc($result);
   }
+
   while ($row = mysqli_fetch_assoc($result)) {
     $rows[] = $row;
   }
@@ -85,6 +86,7 @@ function cari($keyword)
   return $rows;
 }
 
+
 function login($data)
 {
   $conn = connect();
@@ -93,31 +95,39 @@ function login($data)
   $password_login = htmlspecialchars($data['password']);
 
   if ($user = query("SELECT * FROM user WHERE username = '$username_login'")) {
-    if (password_verify($password_login, $user['password'])) {
+    if (hash('sha256', $password_login, $user['password'])) {
       $_SESSION['login'] = true;
+
       header("Location: index.php");
       exit;
+    } else {
+      return [
+        'error' => true
+
+      ];
     }
+  } else {
+    return [
+      'error' => true
+
+    ];
   }
-  return [
-    'error' => true
-  ];
 }
 
 
 function registrasi($data)
 {
   $conn = connect();
-  $username = htmlspecialchars($data['username']);
-  $password = htmlspecialchars($data['password']);
-  $confpassword = htmlspecialchars($data['confirmpassword']);
+  $username = htmlspecialchars(strtolower($data['username']));
+  $password = mysqli_escape_string($conn, $data['password']);
+  $confpassword = mysqli_escape_string($conn, $data['confirmpassword']);
   $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username'");
   if (mysqli_fetch_assoc($result)) {
     echo "<script>
             alert('username telah digunakan');
             </script>";
     return false;
-  } else if ($password != $confpassword) {
+  } else if ($password !== $confpassword) {
     echo "<script>
     alert('password tidak sama');
     </script>";
@@ -125,7 +135,7 @@ function registrasi($data)
   }
 
   $password_enkripsi = password_hash($password, PASSWORD_DEFAULT);
-  $query_register = "INSERT INTO user VALUES ('','$username','$password_enkripsi')";
+  $query_register = "INSERT INTO user VALUES (null,'$username','$password_enkripsi')";
   mysqli_query($conn, $query_register);
 
   return mysqli_affected_rows($conn);

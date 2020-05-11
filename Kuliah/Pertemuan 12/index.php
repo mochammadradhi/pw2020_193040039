@@ -3,14 +3,15 @@ session_start();
 if (!isset($_SESSION['login'])) {
   header("Location: login.php");
   exit;
-
-  require("functions.php");
-  $mahasiswa = query("SELECT * FROM mahasiswa");
-
-  if (isset($_POST['keyword'])) {
-    $mahasiswa = cari($_POST['keyword']);
-  }
 }
+
+require("functions.php");
+$mahasiswa = query("SELECT * FROM mahasiswa");
+
+if (isset($_POST['keyword'])) {
+  $mahasiswa = cari($_POST['keyword']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
