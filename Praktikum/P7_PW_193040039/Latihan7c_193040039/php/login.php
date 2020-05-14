@@ -116,7 +116,7 @@ if (isset($_POST['submit'])) {
                 <label>Remember me</label>
               </div>
             </div>
-            <div class="field">Belum punya akun? | <a href="php/register.php">Register</a></div>
+            <div class="field">Belum punya akun? | <a href="register.php">Register</a></div>
             <button class="ui positive right labeled icon button" name="submit">
               Login
               <i class="arrow alternate circle right outline icon"></i>
