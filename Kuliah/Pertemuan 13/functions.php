@@ -91,7 +91,7 @@ function tambah($data)
 function hapus($id)
 {
   $conn = connect();
-  $mhs_gambar = query("SELECT * FROM mahasiswa Where id=$id;");
+  $mhs_gambar = query("SELECT * FROM mahasiswa WHERE id=$id;");
   if ($mhs_gambar['gambar'] != 'no-avatar.png') {
     unlink('img/' . $mhs_gambar['gambar']);
   }
