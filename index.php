@@ -32,6 +32,11 @@
         <a href="Praktikum/P7_PW_193040039/">Praktikum Petemuan 7</a>
       </td>
     </tr>
+    <tr>
+      <td>
+        <a href="Tubes/">Tubes</a>
+      </td>
+    </tr>
   </table>
 </body>
 

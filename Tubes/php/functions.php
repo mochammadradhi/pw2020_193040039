@@ -207,9 +207,13 @@ function login($data)
     if (mysqli_num_rows($admin) > 0) {
         $row = mysqli_fetch_assoc($admin);
         if (password_verify($password_login, $row['password'])) {
-            $_SESSION['login'] = true;
-            $_SESSION['username'] = $username_login;
+            $_SESSION['login'] = $username_login;
+            $_SESSION['hash'] = hash('sha256', $row['id'], false);
             $_SESSION['priority'] = $row['priority'];
+            if (isset($_POST['remember'])) {
+                setcookie('login', $row['username'], time() + 60 * 60 * 24);
+                setcookie('hash', hash('sha256', $row['id']), time() + 60 * 60 * 24);
+            }
             header("Location: index_login.php");
             exit;
         }
@@ -217,10 +221,14 @@ function login($data)
     if (mysqli_num_rows($user) > 0) {
         $rowuser = mysqli_fetch_assoc($user);
         if (password_verify($password_login, $rowuser['password'])) {
-            $_SESSION['login'] = true;
-            $_SESSION['username'] = $username_login;
+            $_SESSION['login'] = $username_login;
+            $_SESSION['hash'] = hash('sha256', $row['id'], false);
             $_SESSION['id'] = $rowuser['id'];
             $_SESSION['priority'] = $rowuser['priority'];
+            if (isset($_POST['remember'])) {
+                setcookie('login', $rowuser['username'], time() + 60 * 60 * 24);
+                setcookie('hash', hash('sha256', $rowuser['id']), time() + 60 * 60 * 24);
+            }
             header("Location: index_login.php");
             exit;
         }

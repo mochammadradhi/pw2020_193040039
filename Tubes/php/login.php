@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Portal Mahasiswa</title>
+  <title>Login Page Music Store</title>
   <link rel="stylesheet" type="text/css" href="../assets/Semantic UI/semantic.min.css">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="../assests/Semantic UI/semantic.min.js"></script>
@@ -103,7 +103,7 @@ if (isset($_POST['login'])) {
               </div>
               <div class="field">
                 <div class="ui checkbox left aligned">
-                  <input type="checkbox" tabindex="0" class="hidden">
+                  <input type="checkbox" name="remember">
                   <label>Remember me?</label>
                 </div>
               </div>
@@ -122,7 +122,7 @@ if (isset($_POST['login'])) {
               </div>
               <div class="field">
                 <div class="ui checkbox left aligned">
-                  <input type="checkbox" tabindex="0" class="hidden">
+                  <input type="checkbox" name="remember">
                   <label>Remember me?</label>
                 </div>
               </div>

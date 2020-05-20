@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tambah Data Mahasiswa</title>
+  <title>Tambah Music Items</title>
   <link rel="stylesheet" type="text/css" href="../assets/Semantic UI/semantic.min.css">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="../assets/Semantic UI/semantic.min.js"></script>

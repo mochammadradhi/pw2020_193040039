@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['login'])) {
+  header("Location: login.php");
+  exit;
+}
 require 'functions.php';
 $profile = query("SELECT * FROM user WHERE priority=4");
 $admin = query("SELECT * FROM user WHERE priority = 1");
@@ -10,7 +14,7 @@ $admin = query("SELECT * FROM user WHERE priority = 1");
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Admin Panel</title>
   <link rel="stylesheet" type="text/css" href="../assets/Semantic UI/semantic.min.css">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>

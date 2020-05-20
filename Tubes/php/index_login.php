@@ -20,7 +20,7 @@ $music_category = query("SELECT * FROM music_gear");
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Porfafor Music</title>
+  <title>Home Page Music</title>
   <link rel="stylesheet" type="text/css" href="../assets/Semantic UI/semantic.min.css">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
